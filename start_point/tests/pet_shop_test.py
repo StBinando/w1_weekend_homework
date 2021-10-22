@@ -97,7 +97,6 @@ class TestPetShop(unittest.TestCase):
         sold = get_pets_sold(self.cc_pet_shop)
         self.assertEqual(0, sold)
 
-    @unittest.skip("delete this line to run the test")
     def test_increase_pets_sold(self):
         increase_pets_sold(self.cc_pet_shop,2)
         sold = get_pets_sold(self.cc_pet_shop)
