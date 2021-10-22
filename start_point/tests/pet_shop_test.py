@@ -93,7 +93,6 @@ class TestPetShop(unittest.TestCase):
         cash = get_total_cash(self.cc_pet_shop)
         self.assertEqual(990, cash)
 
-    @unittest.skip("delete this line to run the test")
     def test_pets_sold(self):
         sold = get_pets_sold(self.cc_pet_shop)
         self.assertEqual(0, sold)
