@@ -1,5 +1,3 @@
-import pdb
-
 def get_pet_shop_name(pet_shop):
     return pet_shop["name"]
 
@@ -60,7 +58,10 @@ def customer_can_afford_pet(customer, pet):
 def sell_pet_to_customer(pet_shop, pet, customer):
     if pet and customer["cash"]>=pet["price"]:
         add_pet_to_customer(customer, pet)
-        remove_pet_by_name(pet_shop, pet["name"])
         increase_pets_sold(pet_shop, 1)
         remove_customer_cash(customer, pet["price"])
         add_or_remove_cash(pet_shop, pet["price"])
+
+        # function added to remove pet from original stock
+        # not required in original integration tests
+        remove_pet_by_name(pet_shop, pet["name"])

@@ -181,6 +181,11 @@ class TestPetShop(unittest.TestCase):
         self.assertEqual(1, get_pets_sold(self.cc_pet_shop))
         self.assertEqual(100, get_customer_cash(customer))
         self.assertEqual(1900, get_total_cash(self.cc_pet_shop))
+        
+        # adding 2 asserts to check the correct pet
+        # has been removed from stock
+        self.assertEqual(5, get_stock_count(self.cc_pet_shop))
+        self.assertIsNone(find_pet_by_name(self.cc_pet_shop,"Arthur"))
 
     def test_sell_pet_to_customer__pet_not_found(self):
         customer = self.customers[0]
@@ -192,6 +197,11 @@ class TestPetShop(unittest.TestCase):
         self.assertEqual(0, get_pets_sold(self.cc_pet_shop))
         self.assertEqual(1000, get_customer_cash(customer))
         self.assertEqual(1000, get_total_cash(self.cc_pet_shop))
+        
+        # adding 2 asserts to check no pet
+        # has been removed from or added to the stock
+        self.assertEqual(6, get_stock_count(self.cc_pet_shop))
+        self.assertIsNone(find_pet_by_name(self.cc_pet_shop,"Dave"))
 
     def test_sell_pet_to_customer__insufficient_funds(self):
         customer = self.customers[1]
@@ -203,3 +213,8 @@ class TestPetShop(unittest.TestCase):
         self.assertEqual(0, get_pets_sold(self.cc_pet_shop))
         self.assertEqual(50, get_customer_cash(customer))
         self.assertEqual(1000, get_total_cash(self.cc_pet_shop))
+
+        # adding 2 asserts to check no pet
+        # has been removed from or added to the stock
+        self.assertEqual(6, get_stock_count(self.cc_pet_shop))
+        self.assertEqual("Arthur", find_pet_by_name(self.cc_pet_shop,"Arthur")["name"])
