@@ -127,7 +127,6 @@ class TestPetShop(unittest.TestCase):
         pet = find_pet_by_name(self.cc_pet_shop,"Arthur")
         self.assertIsNone(pet)
 
-    @unittest.skip("delete this line to run the test")
     def test_add_pet_to_stock(self):
         add_pet_to_stock(self.cc_pet_shop, self.new_pet)
         count = get_stock_count(self.cc_pet_shop)
