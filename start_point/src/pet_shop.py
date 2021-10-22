@@ -1,4 +1,4 @@
-# WRITE YOUR FUNCTIONS HERE
+import pdb
 
 def get_pet_shop_name(pet_shop):
     return pet_shop["name"]
@@ -25,3 +25,11 @@ def get_pets_by_breed(pet_shop, breed):
             breed_list.append(pet)
     
     return breed_list
+
+def find_pet_by_name(pet_shop, pet_name):
+    pet_found = None
+    for pet in pet_shop["pets"]:
+        if pet["name"] == pet_name:
+            pet_found = pet
+
+    return pet_found
