@@ -132,7 +132,6 @@ class TestPetShop(unittest.TestCase):
         count = get_stock_count(self.cc_pet_shop)
         self.assertEqual(7, count)
 
-    @unittest.skip("delete this line to run the test")
     def test_customer_cash(self):
         cash = get_customer_cash(self.customers[0])
         self.assertEqual(1000, cash)
